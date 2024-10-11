@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Info') {
+            steps {
+                script {
+                    def branch = env.BRANCH_NAME
+                    def buildId = env.BUILD_ID
+                    echo "Branch Name: ${branch}, Build ID: ${buildId}"
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'This is Build stage'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'This is Test stage'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'This is Deploy stage'
+            }
+        }
+    }
+}
+
